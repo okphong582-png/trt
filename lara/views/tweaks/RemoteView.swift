@@ -41,9 +41,9 @@ struct RemoteView: View {
                 }
 
                 Picker("Display Mode", selection: $mgr.startMenuMode) {
-                    Text("Thanh trạng thái / Status Bar (Ổn định - Không respring)").tag(0)
-                    Text("Chữ nổi / Floating Pill (Thử nghiệm)").tag(1)
-                    Text("Cả hai / Both (Status Bar + Chữ nổi)").tag(2)
+                    Text("Thanh trạng thái / Status Bar (Ổn định)").tag(0)
+                    Text("Chữ nổi giữa màn hình (Siêu to)").tag(1)
+                    Text("Cả hai (Status Bar + Giữa màn hình)").tag(2)
                 }
 
                 if !mgr.startMenuActive {
@@ -70,7 +70,7 @@ struct RemoteView: View {
             } header: {
                 Text("Start Menu (\(mgr.startMenuText))")
             } footer: {
-                Text("Hiển thị '\(mgr.startMenuText)' trên màn hình dù ra màn hình chính hay app khác (không dùng PiP). Chế độ Thanh trạng thái (Status Bar) hoạt động ổn định nhất, không gây respring.")
+                Text("Hiển thị '\(mgr.startMenuText)' trên màn hình dù ra màn hình chính hay app khác (không dùng PiP). Chữ nổi hiển thị ngay chính giữa màn hình siêu to và không chặn cảm ứng.")
             }
 
             Section {

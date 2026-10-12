@@ -94,7 +94,15 @@ final class laramgr: ObservableObject {
     @Published var startMenuActive: Bool = UserDefaults.standard.bool(forKey: "startMenuActive")
     @Published var startMenuRunning: Bool = false
     @Published var startMenuText: String = UserDefaults.standard.string(forKey: "startMenuText") ?? "hoàng hà"
-    @Published var startMenuMode: Int = UserDefaults.standard.object(forKey: "startMenuMode") as? Int ?? 2
+    @Published var startMenuMode: Int = {
+        let migrated = UserDefaults.standard.bool(forKey: "startMenuModeV2Migrated")
+        if !migrated {
+            UserDefaults.standard.set(true, forKey: "startMenuModeV2Migrated")
+            UserDefaults.standard.set(0, forKey: "startMenuMode")
+            return 0
+        }
+        return UserDefaults.standard.object(forKey: "startMenuMode") as? Int ?? 0
+    }()
     
     var sbProc: RemoteCall?
     var ytProc = RemoteCall(process: "youtube", useMigFilterBypass: false)

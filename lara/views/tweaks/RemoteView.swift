@@ -41,9 +41,9 @@ struct RemoteView: View {
                 }
 
                 Picker("Display Mode", selection: $mgr.startMenuMode) {
-                    Text("Status Bar + Floating Pill").tag(2)
-                    Text("Status Bar Only").tag(0)
-                    Text("Floating Pill Only").tag(1)
+                    Text("Thanh trạng thái / Status Bar (Ổn định - Không respring)").tag(0)
+                    Text("Chữ nổi / Floating Pill (Thử nghiệm)").tag(1)
+                    Text("Cả hai / Both (Status Bar + Chữ nổi)").tag(2)
                 }
 
                 if !mgr.startMenuActive {
@@ -70,7 +70,7 @@ struct RemoteView: View {
             } header: {
                 Text("Start Menu (\(mgr.startMenuText))")
             } footer: {
-                Text("Shows '\(mgr.startMenuText)' on screen across the Home Screen and all other apps without PiP.")
+                Text("Hiển thị '\(mgr.startMenuText)' trên màn hình dù ra màn hình chính hay app khác (không dùng PiP). Chế độ Thanh trạng thái (Status Bar) hoạt động ổn định nhất, không gây respring.")
             }
 
             Section {

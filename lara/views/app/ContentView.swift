@@ -229,9 +229,9 @@ struct ContentView: View {
             }
 
             Picker("Display Mode", selection: $mgr.startMenuMode) {
-                Text("Status Bar + Floating Pill").tag(2)
-                Text("Status Bar Only").tag(0)
-                Text("Floating Pill Only").tag(1)
+                Text("Thanh trạng thái / Status Bar (Ổn định - Không respring)").tag(0)
+                Text("Chữ nổi / Floating Pill (Thử nghiệm)").tag(1)
+                Text("Cả hai / Both (Status Bar + Chữ nổi)").tag(2)
             }
 
             Toggle("Auto-start after exploit", isOn: $autoStartMenu)
@@ -260,7 +260,7 @@ struct ContentView: View {
         } header: {
             HeaderLabel(text: "Start Menu (\(mgr.startMenuText))", icon: "sparkles")
         } footer: {
-            Text("Displays '\(mgr.startMenuText)' on screen across the Home Screen and other apps without PiP. Automatically activates right after exploit succeeds.")
+            Text("Hiển thị '\(mgr.startMenuText)' trên màn hình dù ra màn hình chính hay app khác (không dùng PiP). Chế độ Thanh trạng thái (Status Bar) hoạt động ổn định nhất, không gây respring.")
         }
     }
     #endif
